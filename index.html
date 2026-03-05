@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Njoy AI Studio — AI-команды вместо сотрудников</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #070711;
+            --bg2: #0d0d1a;
+            --accent: #7C3AED;
+            --accent2: #A855F7;
+            --accent-light: #C084FC;
+            --text: #F8F8FF;
+            --text-muted: #9CA3AF;
+            --border: rgba(124, 58, 237, 0.2);
+            --card: rgba(255,255,255,0.03);
+            --radius: 16px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(7, 7, 17, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #A855F7, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 76px);
+            font-weight: 900;
+            line-height: 1.05;
+            max-width: 900px;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #A855F7 0%, #60A5FA 50%, #34D399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--text-muted);
+            max-width: 580px;
+            margin-bottom: 48px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7C3AED, #A855F7);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 0 40px rgba(124, 58, 237, 0.4);
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(124, 58, 237, 0.6); }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.15);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-secondary:hover { border-color: var(--accent); color: var(--accent-light); }
+
+        .hero-stats {
+            display: flex;
+            gap: 56px;
+            justify-content: center;
+            margin-top: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat { text-align: center; }
+
+        .stat-num {
+            font-size: 38px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #A855F7, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+        /* Sections */
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+
+        .full-section { max-width: 100%; background: var(--bg2); padding: 100px 20px; }
+        .full-inner { max-width: 1200px; margin: 0 auto; }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: clamp(28px, 4vw, 50px);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        h2 span {
+            background: linear-gradient(135deg, #A855F7, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-desc {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 580px;
+            margin-bottom: 60px;
+        }
+
+        /* Pain cards */
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .pain-card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: border-color 0.3s;
+        }
+
+        .pain-card:hover { border-color: var(--border); }
+        .pain-icon { font-size: 32px; margin-bottom: 16px; }
+        .pain-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .pain-card p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+
+        /* Roles */
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 16px;
+            margin-top: 60px;
+        }
+
+        .role-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 20px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #7C3AED, #60A5FA);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .role-card:hover::before { opacity: 1; }
+        .role-card:hover { transform: translateY(-4px); }
+        .role-emoji { font-size: 36px; margin-bottom: 12px; }
+        .role-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .role-desc { font-size: 13px; color: var(--text-muted); }
+
+        /* Reels CTA block */
+        .reels-wrap { padding: 0 20px; }
+
+        .reels-section {
+            background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(96,165,250,0.04));
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reels-section::before {
+            content: '';
+            position: absolute;
+            top: -100px; right: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(124,58,237,0.18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .reels-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #F59E0B, #EF4444);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .reels-price {
+            font-size: 64px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #A855F7, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 32px 0 8px;
+            letter-spacing: -3px;
+        }
+
+        .reels-sub { color: var(--text-muted); font-size: 16px; margin-bottom: 40px; }
+
+        .reels-features {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .reels-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        .reels-feature .ck { color: #34D399; font-weight: 700; }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 40px 32px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover { transform: translateY(-4px); }
+
+        .pricing-card.featured {
+            border-color: var(--accent);
+            background: rgba(124, 58, 237, 0.07);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #7C3AED, #A855F7);
+            color: white;
+            padding: 4px 22px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .plan-name {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 6px;
+        }
+
+        .plan-desc { color: var(--text-muted); font-size: 13px; margin-bottom: 24px; }
+
+        .plan-price {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 4px;
+        }
+
+        .plan-price-label { color: var(--text-muted); font-size: 13px; margin-bottom: 32px; }
+
+        .plan-features { list-style: none; margin-bottom: 36px; }
+
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .plan-features li:last-child { border-bottom: none; }
+        .check { color: #34D399; }
+        .cross { color: rgba(255,255,255,0.18); }
+
+        /* Cases */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .case-card {
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .case-card:hover { border-color: var(--border); transform: translateY(-2px); }
+
+        .case-company {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+
+        .case-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+
+        .case-card p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+
+        .case-metric {
+            background: rgba(124, 58, 237, 0.12);
+            border: 1px solid rgba(124, 58, 237, 0.25);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-light);
+        }
+
+        /* About */
+        .about-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-photo {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(96,165,250,0.08));
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 96px;
+            overflow: hidden;
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 28px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .about-tg {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 8px;
+            transition: color 0.3s;
+        }
+
+        .about-tg:hover { color: white; }
+
+        /* Form */
+        .form-full {
+            background: linear-gradient(135deg, rgba(124,58,237,0.07), rgba(96,165,250,0.03));
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 100px 20px;
+        }
+
+        .form-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .form-inner h2 { margin-bottom: 12px; }
+        .form-inner .section-desc { margin: 0 auto 48px; }
+
+        form { display: flex; flex-direction: column; gap: 16px; text-align: left; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        input, select, textarea {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: white;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.3); }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+        select option { background: #1a1a2e; color: white; }
+        textarea { resize: vertical; min-height: 100px; }
+
+        .form-submit {
+            background: linear-gradient(135deg, #7C3AED, #A855F7);
+            color: white;
+            padding: 18px;
+            border-radius: 50px;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+            width: 100%;
+            margin-top: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(124,58,237,0.6); }
+
+        .form-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 12px; }
+
+        .form-success { display: none; text-align: center; padding: 40px 0; }
+        .form-success h3 { font-size: 26px; font-weight: 800; margin-bottom: 12px; }
+
+        /* Footer */
+        footer {
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #A855F7, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+        }
+
+        .footer-text { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+
+        .footer-links { display: flex; gap: 32px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--accent-light); }
+        .footer-copy { color: rgba(255,255,255,0.2); font-size: 13px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+            .about-inner { grid-template-columns: 1fr; gap: 40px; }
+            .form-row { grid-template-columns: 1fr; }
+            .hero-stats { gap: 32px; }
+            .reels-section { padding: 60px 28px; }
+            section { padding: 60px 20px; }
+            .full-section { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+    <div class="logo">Njoy AI Studio</div>
+    <a href="#form" class="nav-cta">Получить консультацию</a>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-badge">🤖 AI-команды нового поколения</div>
+    <h1>AI-команда вместо<br><span>штата сотрудников</span></h1>
+    <p class="hero-sub">Настраиваем AI-агентов которые работают 24/7 — отвечают клиентам, ведут продажи, создают контент. Без найма, без выгорания, без простоев.</p>
+    <div class="hero-cta">
+        <a href="#reels" class="btn-primary">🎬 Попробовать за 40 000 ₽</a>
+        <a href="#pricing" class="btn-secondary">Смотреть тарифы</a>
+    </div>
+    <div class="hero-stats">
+        <div class="stat">
+            <div class="stat-num">24/7</div>
+            <div class="stat-label">Работает без перерывов</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">3 дня</div>
+            <div class="stat-label">До запуска первого агента</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">×3</div>
+            <div class="stat-label">Дешевле штатного сотрудника</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">85%</div>
+            <div class="stat-label">Запросов без участия человека</div>
+        </div>
+    </div>
+</div>
+
+<!-- Pain -->
+<div class="full-section">
+    <div class="full-inner">
+        <div class="section-label">Проблема</div>
+        <h2>Нанимать <span>сложно</span>.<br>Сотрудники уходят.</h2>
+        <p class="section-desc">Рынок труда перегрет. Хороших людей нет, а те что есть — дорогие, болеют и увольняются.</p>
+        <div class="pain-grid">
+            <div class="pain-card">
+                <div class="pain-icon">😤</div>
+                <h3>Некому отвечать клиентам</h3>
+                <p>Менеджеры перегружены, клиенты ждут часами, часть уходит к конкурентам прямо сейчас</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">💸</div>
+                <h3>Команда дорого стоит</h3>
+                <p>5 сотрудников — это 500 000+ рублей в месяц до налогов. Плюс найм, обучение, текучка</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">📱</div>
+                <h3>Контент требует постоянства</h3>
+                <p>SMM-щики пропадают, вдохновение кончается, Reels выходят раз в месяц вместо каждый день</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">🔄</div>
+                <h3>Рутина убивает время</h3>
+                <p>80% рабочего времени — повторяющиеся задачи которые можно автоматизировать прямо сейчас</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Roles -->
+<section>
+    <div class="section-label">Решение</div>
+    <h2>Одна AI-команда,<br><span>все роли</span></h2>
+    <p class="section-desc">Каждый агент — отдельная роль с памятью, базой знаний и интеграцией в ваши процессы.</p>
+    <div class="roles-grid">
+        <div class="role-card">
+            <div class="role-emoji">🎧</div>
+            <div class="role-name">Поддержка</div>
+            <div class="role-desc">Отвечает клиентам 24/7, решает вопросы, эскалирует сложное</div>
+        </div>
+        <div class="role-card">
+            <div class="role-emoji">💰</div>
+            <div class="role-name">Продажи</div>
+            <div class="role-desc">Квалифицирует лиды, ведёт по воронке, назначает встречи</div>
+        </div>
+        <div class="role-card">
+            <div class="role-emoji">👥</div>
+            <div class="role-name">HR</div>
+            <div class="role-desc">Ищет кандидатов, скринит резюме, онбордит новых сотрудников</div>
+        </div>
+        <div class="role-card">
+            <div class="role-emoji">🎬</div>
+            <div class="role-name">Контент</div>
+            <div class="role-desc">Генерирует Reels, посты, описания товаров, рассылки</div>
+        </div>
+        <div class="role-card">
+            <div class="role-emoji">📊</div>
+            <div class="role-name">Аналитика</div>
+            <div class="role-desc">Собирает данные, строит отчёты, выявляет инсайты</div>
+        </div>
+    </div>
+</section>
+
+<!-- Reels CTA -->
+<div id="reels" class="reels-wrap">
+    <div class="reels-section">
+        <div class="reels-badge">🔥 Точка входа</div>
+        <h2>Попробуй AI-агент<br><span>для Reels</span></h2>
+        <p style="color:var(--text-muted);font-size:18px;max-width:520px;margin:0 auto;">Агент создаёт идеи, сценарии и публикует Reels вместо SMM-щика. Без выходных, без вдохновения, без задержек.</p>
+        <div class="reels-price">40 000 ₽</div>
+        <p class="reels-sub">Разовая настройка · Запуск за 3 дня</p>
+        <div class="reels-features">
+            <div class="reels-feature"><span class="ck">✓</span> Генерация идей и сценариев</div>
+            <div class="reels-feature"><span class="ck">✓</span> Адаптация под ваш бренд</div>
+            <div class="reels-feature"><span class="ck">✓</span> Публикация по расписанию</div>
+            <div class="reels-feature"><span class="ck">✓</span> Работает в Telegram</div>
+        </div>
+        <a href="#form" class="btn-primary" style="font-size:17px;padding:20px 56px;">Запустить за 3 дня →</a>
+    </div>
+</div>
+
+<!-- Pricing -->
+<section id="pricing">
+    <div class="section-label">Тарифы</div>
+    <h2>Выберите свой<br><span>уровень</span></h2>
+    <p class="section-desc">Начните с одного агента. Расширяйте по мере роста — каждый следующий шаг логично вытекает из предыдущего.</p>
+    <div class="pricing-grid">
+
+        <div class="pricing-card">
+            <div class="plan-name">🟢 Старт</div>
+            <div class="plan-desc">Первый шаг, тест гипотезы</div>
+            <div class="plan-price">80 000 ₽</div>
+            <div class="plan-price-label">разовая настройка</div>
+            <ul class="plan-features">
+                <li><span class="check">✓</span> 1 AI-агент</li>
+                <li><span class="check">✓</span> 1 канал (Telegram или WhatsApp)</li>
+                <li><span class="check">✓</span> Базовая настройка под бизнес</li>
+                <li><span class="cross">—</span> Память и история клиентов</li>
+                <li><span class="cross">—</span> База знаний</li>
+                <li><span class="cross">—</span> CRM-интеграция</li>
+                <li><span class="cross">—</span> Поддержка после запуска</li>
+            </ul>
+            <a href="#form" class="btn-secondary">Выбрать Старт</a>
+        </div>
+
+        <div class="pricing-card featured">
+            <div class="featured-badge">⭐ Популярный</div>
+            <div class="plan-name">🔵 Стандарт</div>
+            <div class="plan-desc">Серьёзное внедрение</div>
+            <div class="plan-price">160 000 ₽</div>
+            <div class="plan-price-label">разовая настройка</div>
+            <ul class="plan-features">
+                <li><span class="check">✓</span> 1 AI-агент</li>
+                <li><span class="check">✓</span> 2 канала</li>
+                <li><span class="check">✓</span> Настройка под бизнес</li>
+                <li><span class="check">✓</span> Память и история клиентов</li>
+                <li><span class="check">✓</span> База знаний</li>
+                <li><span class="check">✓</span> CRM-интеграция</li>
+                <li><span class="check">✓</span> Поддержка 30 дней</li>
+            </ul>
+            <a href="#form" class="btn-primary">Выбрать Стандарт</a>
+        </div>
+
+        <div class="pricing-card">
+            <div class="plan-name">🏆 Команда</div>
+            <div class="plan-desc">Полная замена команды</div>
+            <div class="plan-price">350 000 ₽</div>
+            <div class="plan-price-label">разовая настройка</div>
+            <ul class="plan-features">
+                <li><span class="check">✓</span> 3 AI-агента</li>
+                <li><span class="check">✓</span> Все нужные каналы</li>
+                <li><span class="check">✓</span> Память и история клиентов</li>
+                <li><span class="check">✓</span> База знаний</li>
+                <li><span class="check">✓</span> CRM-интеграция</li>
+                <li><span class="check">✓</span> Аналитика и отчёты</li>
+                <li><span class="check">✓</span> Голосовой агент</li>
+                <li><span class="check">✓</span> Поддержка 45 дней</li>
+            </ul>
+            <a href="#form" class="btn-secondary">Выбрать Команду</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Cases -->
+<div class="full-section">
+    <div class="full-inner">
+        <div class="section-label">Кейсы рынка</div>
+        <h2>Как бизнес уже<br><span>использует агентов</span></h2>
+        <p class="section-desc">Реальные результаты компаний которые внедрили AI-агентов</p>
+        <div class="cases-grid">
+            <div class="case-card">
+                <div class="case-company">Авиакомпания</div>
+                <h3>10 000 обращений в месяц без роста штата</h3>
+                <p>AI-агент обрабатывает поток обращений круглосуточно, решает типовые вопросы автономно, без очередей.</p>
+                <div class="case-metric">75% запросов без человека · CSI 90%</div>
+            </div>
+            <div class="case-card">
+                <div class="case-company">B2B SaaS платформа</div>
+                <h3>Ответ за 60 секунд вместо часов</h3>
+                <p>AI-агент поддержки отвечает точно по базе знаний, снимает нагрузку с команды и не ошибается в регламентах.</p>
+                <div class="case-metric">85% корректных ответов · −40% нагрузки на операторов</div>
+            </div>
+            <div class="case-card">
+                <div class="case-company">Платформа для фрилансеров</div>
+                <h3>×2 рост обращений, штат не вырос</h3>
+                <p>Внедрили AI-агента — объём запросов удвоился, команда осталась прежней, CSI не упал.</p>
+                <div class="case-metric">CSI 93% · нулевой рост затрат на поддержку</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About -->
+<div class="full-section" style="background:var(--bg);">
+    <div class="about-inner">
+        <div class="about-photo" id="about-photo">
+            👤
+        </div>
+        <div class="about-content">
+            <div class="section-label">О нас</div>
+            <h2>Строим <span>AI-команды</span><br>под ключ</h2>
+            <p>Мы настраиваем AI-агентов которые реально работают — не демо, не пилот, а продакшн-решения интегрированные в ваши процессы с первого дня.</p>
+            <p>Настраиваем, запускаем, сопровождаем. Вы получаете работающую команду, мы следим чтобы она работала стабильно.</p>
+            <p>Если хотите управлять сами — обучим и передадим все инструменты. Вы всегда под контролем.</p>
+            <a href="https://t.me/niki4_JamBo" target="_blank" class="about-tg">
+                ✈️ Написать напрямую в Telegram →
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Form -->
+<div class="form-full" id="form">
+    <div class="form-inner">
+        <div class="section-label">Начать</div>
+        <h2>Запустим вашего<br><span>первого агента</span></h2>
+        <p class="section-desc">Оставьте заявку — ответим в течение 2 часов и предложим решение под вашу задачу</p>
+
+        <div id="form-container">
+            <form id="lead-form">
+                <div class="form-row">
+                    <input type="text" id="f-name" placeholder="Ваше имя" required>
+                    <input type="text" id="f-tg" placeholder="Telegram (@username)" required>
+                </div>
+                <select id="f-product">
+                    <option value="" disabled selected>Что интересует?</option>
+                    <option value="reels">🎬 Reels Creator — 40 000 ₽</option>
+                    <option value="start">🟢 Пакет Старт — 80 000 ₽</option>
+                    <option value="standard">🔵 Пакет Стандарт — 160 000 ₽</option>
+                    <option value="team">🏆 Пакет Команда — 350 000 ₽</option>
+                    <option value="custom">Кастомное решение</option>
+                </select>
+                <textarea id="f-task" placeholder="Опишите задачу — что хотите автоматизировать?"></textarea>
+                <button type="submit" class="form-submit">Отправить заявку в Telegram →</button>
+                <p class="form-note">🔒 Данные передаются напрямую в Telegram. Никакого спама.</p>
+            </form>
+        </div>
+
+        <div class="form-success" id="form-success">
+            <div style="font-size:64px;margin-bottom:24px;">✅</div>
+            <h3>Заявка отправлена!</h3>
+            <p style="color:var(--text-muted);margin-top:12px;font-size:16px;">
+                Мы напишем вам в Telegram в течение 2 часов.<br>
+                Если срочно — <a href="https://t.me/niki4_JamBo" target="_blank" style="color:var(--accent-light);text-decoration:none;font-weight:600;">напишите сами →</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-logo">Njoy AI Studio</div>
+    <p class="footer-text">AI-команды вместо штата сотрудников</p>
+    <div class="footer-links">
+        <a href="#reels">Reels Agent</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="https://t.me/niki4_JamBo" target="_blank">Telegram</a>
+    </div>
+    <p class="footer-copy">© 2025 Njoy AI Studio. Все права защищены.</p>
+</footer>
+
+<script>
+    document.getElementById('lead-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name    = document.getElementById('f-name').value.trim();
+        const tg      = document.getElementById('f-tg').value.trim();
+        const sel     = document.getElementById('f-product');
+        const product = sel.selectedIndex > 0 ? sel.options[sel.selectedIndex].text : 'Не выбрано';
+        const task    = document.getElementById('f-task').value.trim() || 'Не указана';
+
+        const msg = `🤖 Новая заявка — Njoy AI Studio\n\n👤 Имя: ${name}\n✈️ Telegram: ${tg}\n📦 Продукт: ${product}\n💬 Задача: ${task}`;
+
+        window.open(`https://t.me/niki4_JamBo?text=${encodeURIComponent(msg)}`, '_blank');
+
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('form-success').style.display  = 'block';
+    });
+</script>
+
+</body>
+</html>
