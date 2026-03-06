@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Njoy AI Studio — AI-сотрудник за 3 дня вместо найма</title>
+    <title>Njoy AI Studio — AI-сотрудник за 3 дня. Гарантия или деньги назад.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -41,7 +41,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(7, 7, 17, 0.85);
+            background: rgba(7, 7, 17, 0.9);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
@@ -60,11 +60,10 @@
             padding: 10px 24px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 14px;
             transition: all 0.3s;
         }
-
         .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
 
         /* Hero */
@@ -75,7 +74,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 120px 20px 80px;
+            padding: 130px 20px 90px;
             position: relative;
             overflow: hidden;
         }
@@ -83,12 +82,11 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -30%;
+            top: -20%;
             left: 50%;
             transform: translateX(-50%);
-            width: 900px;
-            height: 900px;
-            background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+            width: 1000px; height: 1000px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -96,22 +94,22 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(124, 58, 237, 0.15);
-            border: 1px solid rgba(124, 58, 237, 0.4);
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.35);
             padding: 8px 20px;
             border-radius: 50px;
             font-size: 13px;
-            font-weight: 500;
-            color: var(--accent-light);
-            margin-bottom: 32px;
+            font-weight: 600;
+            color: #6EE7B7;
+            margin-bottom: 36px;
         }
 
         .hero h1 {
-            font-size: clamp(34px, 5.5vw, 70px);
+            font-size: clamp(34px, 5.5vw, 68px);
             font-weight: 900;
             line-height: 1.08;
-            max-width: 900px;
-            margin-bottom: 24px;
+            max-width: 920px;
+            margin-bottom: 28px;
             letter-spacing: -2px;
         }
 
@@ -122,13 +120,21 @@
         }
 
         .hero-sub {
-            font-size: clamp(16px, 2vw, 20px);
+            font-size: clamp(17px, 2vw, 21px);
             color: var(--text-muted);
-            max-width: 580px;
-            margin-bottom: 20px;
+            max-width: 600px;
+            margin-bottom: 14px;
+            line-height: 1.65;
         }
 
-        /* Scarcity bar */
+        .hero-guarantee {
+            font-size: 15px;
+            font-weight: 700;
+            color: #6EE7B7;
+            margin-bottom: 32px;
+        }
+
+        /* Scarcity */
         .scarcity-bar {
             display: inline-flex;
             align-items: center;
@@ -148,6 +154,7 @@
             background: #EF4444;
             border-radius: 50%;
             animation: pulse 1.5s infinite;
+            flex-shrink: 0;
         }
 
         @keyframes pulse {
@@ -155,30 +162,22 @@
             50% { opacity: 0.4; transform: scale(0.8); }
         }
 
-        .hero-cta {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
         .btn-primary {
             background: linear-gradient(135deg, #7C3AED, #A855F7);
             color: white;
-            padding: 18px 40px;
+            padding: 20px 48px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
+            font-weight: 800;
+            font-size: 17px;
             transition: all 0.3s;
-            box-shadow: 0 0 40px rgba(124, 58, 237, 0.4);
+            box-shadow: 0 0 40px rgba(124, 58, 237, 0.45);
             border: none;
             cursor: pointer;
             display: inline-block;
+            letter-spacing: -0.3px;
         }
-
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(124, 58, 237, 0.6); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 64px rgba(124, 58, 237, 0.65); }
 
         .btn-secondary {
             background: transparent;
@@ -186,36 +185,33 @@
             padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 16px;
             transition: all 0.3s;
             border: 1px solid rgba(255,255,255,0.15);
             display: inline-block;
             text-align: center;
         }
-
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent-light); }
 
         .cta-microcopy {
+            margin-top: 14px;
             font-size: 13px;
             color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .hero-stats {
             display: flex;
             gap: 56px;
             justify-content: center;
-            margin-top: 72px;
+            margin-top: 80px;
             flex-wrap: wrap;
         }
 
         .stat { text-align: center; }
 
         .stat-num {
-            font-size: 38px;
+            font-size: 40px;
             font-weight: 900;
             background: linear-gradient(135deg, #A855F7, #60A5FA);
             -webkit-background-clip: text;
@@ -241,9 +237,9 @@
 
         h2 {
             font-size: clamp(28px, 4vw, 50px);
-            font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -1px;
+            font-weight: 900;
+            line-height: 1.12;
+            letter-spacing: -1.5px;
             margin-bottom: 16px;
         }
 
@@ -256,11 +252,12 @@
         .section-desc {
             font-size: 18px;
             color: var(--text-muted);
-            max-width: 580px;
+            max-width: 600px;
             margin-bottom: 60px;
+            line-height: 1.7;
         }
 
-        /* Pain cards — improved with emotional agitation */
+        /* Pain */
         .pain-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -275,25 +272,52 @@
             padding: 32px;
             transition: border-color 0.3s;
         }
+        .pain-card:hover { border-color: rgba(239, 68, 68, 0.3); }
 
-        .pain-card:hover { border-color: var(--border); }
         .pain-icon { font-size: 32px; margin-bottom: 16px; }
-        .pain-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-        .pain-card p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 12px; }
+        .pain-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+        .pain-card p { color: var(--text-muted); font-size: 14px; line-height: 1.75; margin-bottom: 14px; }
         .pain-sting {
+            display: block;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             color: #FCA5A5;
-            font-style: italic;
+            line-height: 1.5;
+            padding-top: 12px;
+            border-top: 1px solid rgba(239, 68, 68, 0.15);
         }
 
-        /* How it works — 3-step StoryBrand */
+        /* Honest block */
+        .honest-block {
+            background: rgba(124, 58, 237, 0.07);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: 20px;
+            padding: 40px 48px;
+            margin-top: 60px;
+        }
+
+        .honest-block h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .honest-block p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.75;
+            max-width: 700px;
+        }
+
+        .honest-block p + p { margin-top: 12px; }
+
+        /* How it works */
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
             margin-top: 60px;
-            position: relative;
         }
 
         .step-card {
@@ -301,7 +325,6 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 36px 28px;
-            position: relative;
             text-align: center;
         }
 
@@ -318,8 +341,8 @@
             box-shadow: 0 0 24px rgba(124, 58, 237, 0.4);
         }
 
-        .step-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
-        .step-card p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+        .step-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.3px; }
+        .step-card p { color: var(--text-muted); font-size: 14px; line-height: 1.75; }
 
         /* Roles */
         .roles-grid {
@@ -353,11 +376,11 @@
         .role-card:hover::before { opacity: 1; }
         .role-card:hover { transform: translateY(-4px); }
         .role-emoji { font-size: 36px; margin-bottom: 12px; }
-        .role-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-        .role-desc { font-size: 13px; color: var(--text-muted); }
+        .role-name { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+        .role-desc { font-size: 13px; color: var(--text-muted); line-height: 1.55; }
 
-        /* Reels CTA block */
-        .reels-wrap { padding: 0 20px; }
+        /* Reels CTA */
+        .reels-wrap { padding: 0 20px; margin: 60px 0; }
 
         .reels-section {
             background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(96,165,250,0.04));
@@ -387,20 +410,20 @@
             padding: 6px 18px;
             border-radius: 50px;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 24px;
         }
 
-        /* Value stack (Hormozi) */
+        /* Value stack */
         .value-stack {
             display: inline-flex;
             flex-direction: column;
             gap: 8px;
-            margin: 24px auto;
+            margin: 28px auto;
             text-align: left;
-            max-width: 420px;
+            max-width: 460px;
             width: 100%;
         }
 
@@ -411,66 +434,66 @@
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(255,255,255,0.07);
             border-radius: 10px;
-            padding: 12px 18px;
+            padding: 13px 18px;
             font-size: 14px;
             gap: 16px;
         }
 
         .value-label { color: var(--text-muted); }
-        .value-price { font-weight: 700; color: var(--text); text-decoration: line-through; opacity: 0.5; }
+        .value-price { font-weight: 700; color: rgba(255,255,255,0.35); text-decoration: line-through; white-space: nowrap; }
+
         .value-total {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(124, 58, 237, 0.12);
-            border: 1px solid rgba(124, 58, 237, 0.3);
+            background: rgba(124, 58, 237, 0.14);
+            border: 1px solid rgba(124, 58, 237, 0.35);
             border-radius: 10px;
-            padding: 14px 18px;
+            padding: 16px 18px;
             font-size: 15px;
-            font-weight: 700;
+            font-weight: 800;
             gap: 16px;
         }
 
         .value-total-label { color: var(--accent-light); }
-        .value-total-price { color: #34D399; font-size: 17px; }
+        .value-total-price { color: #34D399; font-size: 18px; white-space: nowrap; }
 
         .reels-price {
-            font-size: 64px;
+            font-size: 72px;
             font-weight: 900;
             background: linear-gradient(135deg, #A855F7, #60A5FA);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 8px 0 4px;
-            letter-spacing: -3px;
+            letter-spacing: -4px;
         }
 
-        .reels-sub { color: var(--text-muted); font-size: 16px; margin-bottom: 12px; }
+        .reels-sub { color: var(--text-muted); font-size: 16px; margin-bottom: 16px; }
 
-        /* Guarantee */
         .guarantee-box {
             display: inline-flex;
-            align-items: center;
-            gap: 12px;
+            align-items: flex-start;
+            gap: 14px;
             background: rgba(52, 211, 153, 0.08);
-            border: 1px solid rgba(52, 211, 153, 0.25);
+            border: 1px solid rgba(52, 211, 153, 0.28);
             border-radius: 14px;
-            padding: 14px 22px;
-            margin: 16px auto 32px;
+            padding: 16px 22px;
+            margin: 12px auto 36px;
             font-size: 14px;
             font-weight: 600;
             color: #6EE7B7;
-            max-width: 480px;
+            max-width: 500px;
             width: 100%;
             text-align: left;
         }
 
-        .guarantee-icon { font-size: 24px; flex-shrink: 0; }
+        .guarantee-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
 
         .reels-features {
             display: flex;
-            gap: 32px;
+            gap: 28px;
             justify-content: center;
-            margin-bottom: 48px;
+            margin-bottom: 44px;
             flex-wrap: wrap;
         }
 
@@ -482,7 +505,7 @@
             color: var(--text-muted);
         }
 
-        .reels-feature .ck { color: #34D399; font-weight: 700; }
+        .reels-feature .ck { color: #34D399; font-weight: 800; }
 
         /* Pricing */
         .pricing-grid {
@@ -518,20 +541,20 @@
             padding: 4px 22px;
             border-radius: 50px;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
             white-space: nowrap;
         }
 
         .plan-name {
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--accent-light);
             margin-bottom: 6px;
         }
 
-        .plan-desc { color: var(--text-muted); font-size: 13px; margin-bottom: 24px; }
+        .plan-desc { color: var(--text-muted); font-size: 13px; margin-bottom: 24px; line-height: 1.5; }
 
         .plan-price {
             font-size: 48px;
@@ -542,20 +565,28 @@
 
         .plan-price-label { color: var(--text-muted); font-size: 13px; margin-bottom: 32px; }
 
+        .plan-roi {
+            font-size: 13px;
+            font-weight: 700;
+            color: #6EE7B7;
+            margin-bottom: 24px;
+        }
+
         .plan-features { list-style: none; margin-bottom: 28px; }
 
         .plan-features li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
             padding: 9px 0;
             font-size: 14px;
+            line-height: 1.5;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .plan-features li:last-child { border-bottom: none; }
-        .check { color: #34D399; }
-        .cross { color: rgba(255,255,255,0.18); }
+        .check { color: #34D399; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+        .cross { color: rgba(255,255,255,0.18); flex-shrink: 0; margin-top: 1px; }
 
         .plan-microcopy {
             font-size: 12px;
@@ -584,16 +615,15 @@
 
         .case-company {
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--accent-light);
             margin-bottom: 12px;
         }
 
-        .case-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
-
-        .case-card p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+        .case-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.3px; }
+        .case-card p { color: var(--text-muted); font-size: 14px; line-height: 1.75; margin-bottom: 20px; }
 
         .case-metric {
             background: rgba(124, 58, 237, 0.12);
@@ -601,7 +631,7 @@
             border-radius: 8px;
             padding: 12px 16px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--accent-light);
         }
 
@@ -647,9 +677,9 @@
             gap: 10px;
             color: var(--accent-light);
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 16px;
-            margin-top: 8px;
+            margin-top: 12px;
             transition: color 0.3s;
         }
 
@@ -657,7 +687,7 @@
 
         /* Social proof */
         .social-proof {
-            background: rgba(255,255,255,0.02);
+            background: rgba(255,255,255,0.025);
             border: 1px solid rgba(255,255,255,0.07);
             border-radius: var(--radius);
             padding: 24px 28px;
@@ -670,17 +700,12 @@
         .proof-text {
             font-size: 15px;
             color: var(--text);
-            line-height: 1.65;
+            line-height: 1.7;
             margin-bottom: 12px;
             font-style: italic;
         }
 
-        .proof-author {
-            font-size: 13px;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
+        .proof-author { font-size: 13px; color: var(--text-muted); font-weight: 600; }
         .proof-author span { color: var(--accent-light); }
 
         /* Form */
@@ -698,7 +723,7 @@
         }
 
         .form-inner h2 { margin-bottom: 12px; }
-        .form-inner .section-desc { margin: 0 auto 32px; }
+        .form-inner .section-desc { margin: 0 auto 28px; }
 
         form { display: flex; flex-direction: column; gap: 16px; text-align: left; }
 
@@ -725,33 +750,34 @@
         .form-submit {
             background: linear-gradient(135deg, #7C3AED, #A855F7);
             color: white;
-            padding: 18px;
+            padding: 20px;
             border-radius: 50px;
             border: none;
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 17px;
+            font-weight: 800;
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
             width: 100%;
             margin-top: 8px;
             font-family: 'Inter', sans-serif;
+            letter-spacing: -0.3px;
         }
 
-        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(124,58,237,0.6); }
+        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(124,58,237,0.65); }
 
-        .form-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 10px; }
+        .form-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 10px; line-height: 1.6; }
 
         .form-success { display: none; text-align: center; padding: 40px 0; }
-        .form-success h3 { font-size: 26px; font-weight: 800; margin-bottom: 12px; }
+        .form-success h3 { font-size: 26px; font-weight: 900; margin-bottom: 12px; }
 
         /* FAQ */
         .faq-list {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
             margin-top: 60px;
-            max-width: 800px;
+            max-width: 820px;
         }
 
         .faq-item {
@@ -768,7 +794,7 @@
             color: var(--text);
             font-family: 'Inter', sans-serif;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             padding: 22px 24px;
             text-align: left;
             cursor: pointer;
@@ -782,22 +808,22 @@
         .faq-q:hover { color: var(--accent-light); }
 
         .faq-chevron {
-            font-size: 20px;
+            font-size: 22px;
             transition: transform 0.3s;
             flex-shrink: 0;
             color: var(--accent-light);
+            font-weight: 400;
         }
 
         .faq-item.open .faq-chevron { transform: rotate(45deg); }
 
         .faq-a {
             display: none;
-            padding: 0 24px 22px;
+            padding: 16px 24px 22px;
             color: var(--text-muted);
             font-size: 15px;
-            line-height: 1.7;
+            line-height: 1.75;
             border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 16px;
         }
 
         .faq-item.open .faq-a { display: block; }
@@ -819,7 +845,6 @@
         }
 
         .footer-text { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
-
         .footer-links { display: flex; gap: 32px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
 
         .footer-links a {
@@ -838,36 +863,43 @@
             .about-inner { grid-template-columns: 1fr; gap: 40px; }
             .form-row { grid-template-columns: 1fr; }
             .hero-stats { gap: 32px; }
-            .reels-section { padding: 60px 28px; }
+            .reels-section { padding: 56px 24px; }
             section { padding: 60px 20px; }
             .full-section { padding: 60px 20px; }
-            .value-stack { padding: 0 8px; }
+            .honest-block { padding: 28px 24px; }
+            .value-stack { padding: 0 4px; }
         }
     </style>
 </head>
 <body>
 
-<!-- Nav — single CTA only (improvement #4) -->
+<!-- Nav -->
 <nav>
     <div class="logo">Njoy AI Studio</div>
     <a href="#form" class="nav-cta">Получить консультацию</a>
 </nav>
 
-<!-- Hero — rewritten headline (improvement #1) + scarcity (improvement #7) + microcopy (improvement #8) -->
+<!-- ═══════════ HERO ═══════════ -->
 <div class="hero">
-    <div class="hero-badge">🤖 AI-команды нового поколения</div>
-    <h1>AI-сотрудник готов<br>за <span>3 дня</span> — и никогда<br>не уходит в отпуск</h1>
-    <p class="hero-sub">Настраиваем AI-агентов которые работают 24/7: отвечают клиентам, ведут продажи, создают контент. Без найма, без выгорания, без простоев.</p>
+    <div class="hero-badge">✅ Работающие AI-команды, не демо — боевые продакшн-решения</div>
 
-    <!-- Scarcity -->
+    <h1>Ваш бизнес получит<br><span>AI-сотрудника за 3 дня.</span><br>Или мы работаем бесплатно.</h1>
+
+    <p class="hero-sub">
+        Отвечает клиентам. Ведёт продажи. Создаёт контент.<br>
+        24/7. Без выходных. В 3 раза дешевле человека.
+    </p>
+
+    <p class="hero-guarantee">🛡️ Гарантия запуска — заработает за 5 дней или дорабатываем бесплатно</p>
+
     <div class="scarcity-bar">
         <div class="scarcity-dot"></div>
         Берём не более 8 проектов в месяц &nbsp;·&nbsp; Свободно 3 слота
     </div>
 
-    <div class="hero-cta">
-        <a href="#form" class="btn-primary">🎬 Попробовать за 40 000 ₽</a>
-        <div class="cta-microcopy">⚡ Ответим в течение 2 часов · Без предоплаты · Заработает за 5 дней</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0;">
+        <a href="#form" class="btn-primary">Запустить AI-сотрудника →</a>
+        <div class="cta-microcopy">⚡ Ответим за 2 часа · Без предоплаты · Первая встреча бесплатно</div>
     </div>
 
     <div class="hero-stats">
@@ -877,7 +909,7 @@
         </div>
         <div class="stat">
             <div class="stat-num">3 дня</div>
-            <div class="stat-label">До запуска первого агента</div>
+            <div class="stat-label">До запуска в продакшн</div>
         </div>
         <div class="stat">
             <div class="stat-num">×3</div>
@@ -885,339 +917,375 @@
         </div>
         <div class="stat">
             <div class="stat-num">85%</div>
-            <div class="stat-label">Запросов без участия человека</div>
+            <div class="stat-label">Запросов закрывает сам</div>
         </div>
     </div>
 </div>
 
-<!-- Pain — rewritten with emotional agitation (improvement #6) -->
+<!-- ═══════════ PAIN ═══════════ -->
 <div class="full-section">
     <div class="full-inner">
-        <div class="section-label">Проблема</div>
-        <h2>Нанимать <span>невозможно</span>.<br>А сотрудники всё равно уходят.</h2>
-        <p class="section-desc">Вы уже устали от бесконечного найма. Рынок пустой, хорошие люди берут дорого — а потом уходят через три месяца.</p>
+        <div class="section-label">Честно о проблеме</div>
+        <h2>Вы платите людям<br>за то, что<br><span>должна делать машина.</span></h2>
+        <p class="section-desc">
+            Это не критика. Это математика.<br>
+            80% задач вашей команды — повторяющиеся сценарии. AI делает их быстрее, точнее и без выходных.
+        </p>
+
         <div class="pain-grid">
             <div class="pain-card">
                 <div class="pain-icon">😤</div>
-                <h3>Клиенты ждут — и уходят</h3>
-                <p>Менеджеры перегружены. Клиент написал в 22:00 и не дождался ответа. Утром он уже у конкурента.</p>
-                <div class="pain-sting">Каждый пропущенный запрос — это деньги, которые вы уже потеряли.</div>
+                <h3>Клиент написал в 22:00.<br>Ответа нет.</h3>
+                <p>Менеджер уже дома. Клиент ждёт. Утром он откроет первый сайт который ответил — а это конкурент. Вы потеряли его навсегда.</p>
+                <span class="pain-sting">Каждый пропущенный запрос = потерянная сделка. Сколько их у вас за месяц?</span>
             </div>
             <div class="pain-card">
                 <div class="pain-icon">💸</div>
-                <h3>5 сотрудников — 500 000 ₽ в месяц</h3>
-                <p>И это до налогов. Плюс больничные, отпуска, найм нового когда предыдущий уволился.</p>
-                <div class="pain-sting">Половину зарплат вы платите за то, что они просто сидят на месте.</div>
+                <h3>5 сотрудников.<br>600 000 ₽ в месяц.</h3>
+                <p>Зарплата, налоги, больничные, найм, обучение нового когда предыдущий уволился. И половина рабочего времени — одни и те же вопросы по кругу.</p>
+                <span class="pain-sting">AI-агент стоит 40–160к один раз. Без оклада каждый месяц.</span>
             </div>
             <div class="pain-card">
                 <div class="pain-icon">📱</div>
-                <h3>SMM-щик «занят» третью неделю</h3>
-                <p>Reels выходят раз в месяц. Алгоритм вас понижает. Конкурент постит каждый день и растёт быстрее вас.</p>
-                <div class="pain-sting">Контент — это продажи. Нет контента — нет клиентов.</div>
+                <h3>SMM обещал.<br>Reels вышел раз в месяц.</h3>
+                <p>Алгоритм любит стабильность. Без регулярных публикаций вас просто перестают показывать. Конкурент постит каждый день — и растёт.</p>
+                <span class="pain-sting">Контент = трафик = деньги. Без контента нет ни того, ни другого.</span>
             </div>
             <div class="pain-card">
                 <div class="pain-icon">🔄</div>
-                <h3>80% времени — одно и то же</h3>
-                <p>Ответить на одни и те же вопросы. Заполнить одну и ту же таблицу. Отправить один и тот же отчёт.</p>
-                <div class="pain-sting">Вы платите людям за то, что давно должна делать машина.</div>
+                <h3>«Уточните ваш заказ».<br>Снова. И снова.</h3>
+                <p>«Какой адрес?», «Когда удобно?», «Вы точно хотите размер M?» — менеджер задаёт одни и те же вопросы 40 раз в день вместо того чтобы закрывать сделки.</p>
+                <span class="pain-sting">Рутина убивает продажи. AI берёт её на себя — полностью.</span>
             </div>
+        </div>
+
+        <div class="honest-block">
+            <h3>Скажем прямо.</h3>
+            <p>Мы не продаём «будущее AI». Мы настраиваем конкретного агента под конкретную задачу в вашем бизнесе. Он начинает работать через 3 дня. Вы видите результат в первую неделю — реальные диалоги, реальные лиды, реальная экономия времени.</p>
+            <p>Если результата нет — мы дорабатываем бесплатно до тех пор, пока он не появится. Никаких вопросов, никаких споров.</p>
         </div>
     </div>
 </div>
 
-<!-- How it works — 3-step StoryBrand plan (improvement #10) -->
+<!-- ═══════════ HOW IT WORKS ═══════════ -->
 <section>
     <div class="section-label">Как это работает</div>
-    <h2>Три шага до<br><span>работающей AI-команды</span></h2>
-    <p class="section-desc">Никакого сложного внедрения. Никаких месяцев разработки. Просто три простых шага.</p>
+    <h2>Три шага.<br><span>Никаких месяцев «разработки».</span></h2>
+    <p class="section-desc">
+        Большинство IT-компаний берут предоплату и пропадают на два месяца.<br>
+        Мы по-другому. Первый результат — через 3 дня.
+    </p>
+
     <div class="steps-grid">
         <div class="step-card">
             <div class="step-num">1</div>
-            <h3>Разбор задач — 1 час</h3>
-            <p>Созваниваемся, разбираем ваши бизнес-процессы и определяем где AI сэкономит больше всего времени и денег. Бесплатно.</p>
+            <h3>Разбор — 1 час, бесплатно</h3>
+            <p>Созваниваемся. Разбираем ваши процессы. Показываем где AI сэкономит больше всего денег и времени именно у вас. Без питча и без продажи.</p>
         </div>
         <div class="step-card">
             <div class="step-num">2</div>
-            <h3>Настройка агента — 3 дня</h3>
-            <p>Настраиваем AI-агента под ваш бизнес: загружаем базу знаний, настраиваем интеграции, обучаем на ваших скриптах и данных.</p>
+            <h3>Настройка — 3 дня</h3>
+            <p>Загружаем ваши скрипты, базу знаний, прайс. Настраиваем под ваш стиль общения. Интегрируем в Telegram, WhatsApp или CRM. Тестируем на реальных сценариях.</p>
         </div>
         <div class="step-card">
             <div class="step-num">3</div>
-            <h3>Запуск и результат</h3>
-            <p>Агент выходит в продакшн и начинает работать. Вы видите результат с первого дня. Мы рядом если что-то нужно доработать.</p>
+            <h3>Запуск — день 3–5</h3>
+            <p>Агент выходит в бой. Отвечает клиентам, обрабатывает заявки, создаёт контент. Вы видите первые результаты до конца первой недели.</p>
         </div>
     </div>
 </section>
 
-<!-- Roles -->
+<!-- ═══════════ ROLES ═══════════ -->
 <div class="full-section">
     <div class="full-inner">
-        <div class="section-label">Решение</div>
-        <h2>Одна AI-команда,<br><span>все роли</span></h2>
-        <p class="section-desc">Каждый агент — отдельная роль с памятью, базой знаний и интеграцией в ваши процессы.</p>
+        <div class="section-label">Что умеет агент</div>
+        <h2>Пять ролей.<br><span>Один агент.</span><br>Ноль найма.</h2>
+        <p class="section-desc">
+            Каждая роль — это отдельный агент с памятью, базой знаний и интеграцией.<br>
+            Выбираете нужные. Не платите за лишнее.
+        </p>
         <div class="roles-grid">
             <div class="role-card">
                 <div class="role-emoji">🎧</div>
                 <div class="role-name">Поддержка</div>
-                <div class="role-desc">Отвечает клиентам 24/7, решает вопросы, эскалирует сложное</div>
+                <div class="role-desc">Отвечает клиентам 24/7. Решает типовые вопросы. Сложное — передаёт человеку.</div>
             </div>
             <div class="role-card">
                 <div class="role-emoji">💰</div>
                 <div class="role-name">Продажи</div>
-                <div class="role-desc">Квалифицирует лиды, ведёт по воронке, назначает встречи</div>
+                <div class="role-desc">Квалифицирует лида, ведёт по воронке, назначает встречи. Не забывает, не устаёт.</div>
             </div>
             <div class="role-card">
                 <div class="role-emoji">👥</div>
                 <div class="role-name">HR</div>
-                <div class="role-desc">Ищет кандидатов, скринит резюме, онбордит новых сотрудников</div>
+                <div class="role-desc">Принимает отклики, скринит резюме, онбордит новых. Нанимаете людей — без бумажной рутины.</div>
             </div>
             <div class="role-card">
                 <div class="role-emoji">🎬</div>
                 <div class="role-name">Контент</div>
-                <div class="role-desc">Генерирует Reels, посты, описания товаров, рассылки</div>
+                <div class="role-desc">Ежедневные Reels, посты, описания, рассылки. Без SMM-щика и без дедлайнов.</div>
             </div>
             <div class="role-card">
                 <div class="role-emoji">📊</div>
                 <div class="role-name">Аналитика</div>
-                <div class="role-desc">Собирает данные, строит отчёты, выявляет инсайты</div>
+                <div class="role-desc">Собирает данные, строит отчёты, находит узкие места. Без Excel и без ручной работы.</div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Reels CTA — value stack (improvement #2) + guarantee (improvement #3) -->
-<div id="reels" class="reels-wrap" style="margin: 60px 0;">
+<!-- ═══════════ REELS CTA ═══════════ -->
+<div id="reels" class="reels-wrap">
     <div class="reels-section">
-        <div class="reels-badge">🔥 Точка входа · Самый быстрый старт</div>
-        <h2>Попробуй AI-агент<br><span>для Reels</span></h2>
-        <p style="color:var(--text-muted);font-size:18px;max-width:520px;margin:0 auto;">Агент создаёт идеи, сценарии и публикует Reels вместо SMM-щика. Без выходных, без вдохновения, без задержек.</p>
+        <div class="reels-badge">🔥 Самый быстрый старт · Точка входа</div>
 
-        <!-- Hormozi value stack -->
+        <h2>Reels Creator —<br><span>ваш личный SMM.</span><br>Без зарплаты.</h2>
+
+        <p style="color:var(--text-muted);font-size:18px;max-width:540px;margin:16px auto 0;line-height:1.7;">
+            Нанять хорошего SMM-щика в Москве — от 80 000 ₽ в месяц.<br>
+            Agentство контента — от 150 000 ₽ в месяц.<br>
+            <strong style="color:var(--text);">Наш агент — 40 000 ₽ один раз.</strong>
+        </p>
+
+        <!-- Value stack -->
         <div class="value-stack">
             <div class="value-item">
-                <span class="value-label">📋 Стратегия контента на месяц</span>
+                <span class="value-label">📋 Контент-стратегия на 30 дней</span>
                 <span class="value-price">30 000 ₽</span>
             </div>
             <div class="value-item">
-                <span class="value-label">✍️ 30 готовых сценариев Reels</span>
+                <span class="value-label">✍️ 30 сценариев Reels под ваш бренд</span>
                 <span class="value-price">60 000 ₽</span>
             </div>
             <div class="value-item">
-                <span class="value-label">⚙️ Настройка публикаций по расписанию</span>
+                <span class="value-label">⚙️ Настройка публикации по расписанию</span>
                 <span class="value-price">40 000 ₽</span>
             </div>
             <div class="value-item">
-                <span class="value-label">🤖 AI-агент работает без вашего участия</span>
-                <span class="value-price">60 000 ₽</span>
+                <span class="value-label">🤖 AI-агент работает без вас каждый день</span>
+                <span class="value-price">∞ ценность</span>
             </div>
             <div class="value-total">
-                <span class="value-total-label">Итого ценность</span>
-                <span class="value-total-price">190 000 ₽ → всего 40 000 ₽</span>
+                <span class="value-total-label">Суммарная ценность</span>
+                <span class="value-total-price">190 000 ₽ → 40 000 ₽</span>
             </div>
         </div>
 
         <div class="reels-price">40 000 ₽</div>
-        <p class="reels-sub">Разовая настройка · Запуск за 3 дня</p>
+        <p class="reels-sub">Разовая оплата · Запуск за 3 дня · Работает вечно</p>
 
-        <!-- Guarantee -->
         <div class="guarantee-box">
             <div class="guarantee-icon">🛡️</div>
-            <div>
-                <strong>Гарантия результата:</strong> агент заработает за 5 дней или дорабатываем бесплатно до победного. Без вопросов.
-            </div>
+            <div><strong>Гарантия без оговорок:</strong> агент заработает в вашем аккаунте за 5 дней — или дорабатываем бесплатно до результата. Весь риск на нас.</div>
         </div>
 
         <div class="reels-features">
-            <div class="reels-feature"><span class="ck">✓</span> Генерация идей и сценариев</div>
-            <div class="reels-feature"><span class="ck">✓</span> Адаптация под ваш бренд</div>
+            <div class="reels-feature"><span class="ck">✓</span> Ежедневные идеи и сценарии</div>
+            <div class="reels-feature"><span class="ck">✓</span> Голос и стиль вашего бренда</div>
             <div class="reels-feature"><span class="ck">✓</span> Публикация по расписанию</div>
-            <div class="reels-feature"><span class="ck">✓</span> Работает в Telegram</div>
+            <div class="reels-feature"><span class="ck">✓</span> Управление через Telegram</div>
         </div>
-        <a href="#form" class="btn-primary" style="font-size:17px;padding:20px 56px;">Запустить за 3 дня →</a>
-        <div style="margin-top:12px;font-size:13px;color:var(--text-muted);">⚡ Свободно 3 слота из 8 в этом месяце</div>
+
+        <a href="#form" class="btn-primary" style="font-size:17px;padding:20px 60px;">
+            Запустить Reels Creator →
+        </a>
+        <div style="margin-top:14px;font-size:13px;color:var(--text-muted);">
+            ⚡ Свободно 3 слота из 8 в этом месяце
+        </div>
     </div>
 </div>
 
-<!-- Pricing -->
+<!-- ═══════════ PRICING ═══════════ -->
 <section id="pricing">
     <div class="section-label">Тарифы</div>
-    <h2>Выберите свой<br><span>уровень</span></h2>
-    <p class="section-desc">Начните с одного агента. Расширяйте по мере роста — каждый следующий шаг логично вытекает из предыдущего.</p>
+    <h2>Выберите масштаб.<br><span>Платите один раз.</span></h2>
+    <p class="section-desc">
+        Без абонентской платы. Без подписок. Без скрытых условий.<br>
+        Настраиваем — запускаем — агент работает. Всё.
+    </p>
+
     <div class="pricing-grid">
 
         <div class="pricing-card">
             <div class="plan-name">🟢 Старт</div>
-            <div class="plan-desc">Первый шаг, тест гипотезы</div>
+            <div class="plan-desc">Один агент для одной задачи. Идеально чтобы проверить гипотезу и увидеть реальный результат.</div>
             <div class="plan-price">80 000 ₽</div>
-            <div class="plan-price-label">разовая настройка</div>
+            <div class="plan-price-label">разовая настройка · навсегда ваш</div>
+            <div class="plan-roi">≈ окупается за 2–3 недели работы</div>
             <ul class="plan-features">
-                <li><span class="check">✓</span> 1 AI-агент</li>
-                <li><span class="check">✓</span> 1 канал (Telegram или WhatsApp)</li>
-                <li><span class="check">✓</span> Базовая настройка под бизнес</li>
+                <li><span class="check">✓</span> 1 AI-агент под вашу задачу</li>
+                <li><span class="check">✓</span> 1 канал — Telegram или WhatsApp</li>
+                <li><span class="check">✓</span> Настройка скриптов и сценариев</li>
+                <li><span class="check">✓</span> Обучение на ваших данных</li>
                 <li><span class="cross">—</span> Память и история клиентов</li>
                 <li><span class="cross">—</span> База знаний</li>
                 <li><span class="cross">—</span> CRM-интеграция</li>
                 <li><span class="cross">—</span> Поддержка после запуска</li>
             </ul>
-            <a href="#form" class="btn-secondary" style="width:100%;text-align:center;display:block;">Выбрать Старт</a>
+            <a href="#form" class="btn-secondary" style="width:100%;text-align:center;display:block;">Начать со Старта</a>
             <div class="plan-microcopy">Без предоплаты · Ответим за 2 часа</div>
         </div>
 
         <div class="pricing-card featured">
-            <div class="featured-badge">⭐ Популярный</div>
+            <div class="featured-badge">⭐ Берут чаще всего</div>
             <div class="plan-name">🔵 Стандарт</div>
-            <div class="plan-desc">Серьёзное внедрение</div>
+            <div class="plan-desc">Полноценный AI-сотрудник с памятью, базой знаний и CRM. Серьёзное внедрение с первого дня.</div>
             <div class="plan-price">160 000 ₽</div>
-            <div class="plan-price-label">разовая настройка</div>
+            <div class="plan-price-label">разовая настройка · навсегда ваш</div>
+            <div class="plan-roi">≈ 1 месяц зарплаты одного сотрудника</div>
             <ul class="plan-features">
-                <li><span class="check">✓</span> 1 AI-агент</li>
-                <li><span class="check">✓</span> 2 канала</li>
-                <li><span class="check">✓</span> Настройка под бизнес</li>
+                <li><span class="check">✓</span> 1 AI-агент под вашу задачу</li>
+                <li><span class="check">✓</span> 2 канала на выбор</li>
+                <li><span class="check">✓</span> Настройка скриптов и сценариев</li>
                 <li><span class="check">✓</span> Память и история клиентов</li>
-                <li><span class="check">✓</span> База знаний</li>
+                <li><span class="check">✓</span> База знаний (FAQ, каталог, прайс)</li>
                 <li><span class="check">✓</span> CRM-интеграция</li>
-                <li><span class="check">✓</span> Поддержка 30 дней</li>
+                <li><span class="check">✓</span> Поддержка 30 дней после запуска</li>
             </ul>
-            <a href="#form" class="btn-primary" style="width:100%;text-align:center;display:block;">Выбрать Стандарт</a>
-            <div class="plan-microcopy">Чаще всего берут именно этот</div>
+            <a href="#form" class="btn-primary" style="width:100%;text-align:center;display:block;">Получить Стандарт</a>
+            <div class="plan-microcopy">Самый популярный выбор</div>
         </div>
 
         <div class="pricing-card">
             <div class="plan-name">🏆 Команда</div>
-            <div class="plan-desc">Полная замена команды</div>
+            <div class="plan-desc">Три агента — поддержка, продажи, контент. Полная замена команды из 3–5 человек.</div>
             <div class="plan-price">350 000 ₽</div>
-            <div class="plan-price-label">разовая настройка</div>
+            <div class="plan-price-label">разовая настройка · навсегда ваши</div>
+            <div class="plan-roi">≈ экономит 300–500к₽ каждый месяц</div>
             <ul class="plan-features">
-                <li><span class="check">✓</span> 3 AI-агента</li>
+                <li><span class="check">✓</span> 3 AI-агента под разные задачи</li>
                 <li><span class="check">✓</span> Все нужные каналы</li>
                 <li><span class="check">✓</span> Память и история клиентов</li>
-                <li><span class="check">✓</span> База знаний</li>
-                <li><span class="check">✓</span> CRM-интеграция</li>
-                <li><span class="check">✓</span> Аналитика и отчёты</li>
+                <li><span class="check">✓</span> Единая база знаний</li>
+                <li><span class="check">✓</span> CRM-интеграция и аналитика</li>
                 <li><span class="check">✓</span> Голосовой агент</li>
-                <li><span class="check">✓</span> Поддержка 45 дней</li>
+                <li><span class="check">✓</span> Дашборд с метриками</li>
+                <li><span class="check">✓</span> Поддержка 45 дней после запуска</li>
             </ul>
-            <a href="#form" class="btn-secondary" style="width:100%;text-align:center;display:block;">Выбрать Команду</a>
-            <div class="plan-microcopy">Окупается за 1–2 месяца</div>
+            <a href="#form" class="btn-secondary" style="width:100%;text-align:center;display:block;">Собрать Команду</a>
+            <div class="plan-microcopy">Окупается в первый месяц</div>
         </div>
 
     </div>
 </section>
 
-<!-- Cases -->
+<!-- ═══════════ CASES ═══════════ -->
 <div class="full-section">
     <div class="full-inner">
-        <div class="section-label">Кейсы рынка</div>
-        <h2>Как бизнес уже<br><span>использует агентов</span></h2>
-        <p class="section-desc">Реальные результаты компаний которые внедрили AI-агентов</p>
+        <div class="section-label">Доказательства</div>
+        <h2>Не верьте нам.<br><span>Смотрите на цифры.</span></h2>
+        <p class="section-desc">Реальные результаты компаний которые уже запустили AI-агентов. Никаких кейсов «в процессе».</p>
         <div class="cases-grid">
             <div class="case-card">
                 <div class="case-company">Авиакомпания</div>
-                <h3>10 000 обращений в месяц без роста штата</h3>
-                <p>AI-агент обрабатывает поток обращений круглосуточно, решает типовые вопросы автономно, без очередей.</p>
-                <div class="case-metric">75% запросов без человека · CSI 90%</div>
+                <h3>10 000 обращений в месяц. Штат не вырос ни на человека.</h3>
+                <p>AI-агент обрабатывает весь поток 24/7. Типовые вопросы — автономно, без очередей. Сложное — сразу к оператору. CSI не упал — вырос.</p>
+                <div class="case-metric">75% запросов без человека · CSI 90% · очередь = 0</div>
             </div>
             <div class="case-card">
-                <div class="case-company">B2B SaaS платформа</div>
-                <h3>Ответ за 60 секунд вместо часов</h3>
-                <p>AI-агент поддержки отвечает точно по базе знаний, снимает нагрузку с команды и не ошибается в регламентах.</p>
-                <div class="case-metric">85% корректных ответов · −40% нагрузки на операторов</div>
+                <div class="case-company">B2B SaaS-платформа</div>
+                <h3>Время ответа: с 4 часов до 60 секунд.</h3>
+                <p>Клиенты больше не ждут. Агент отвечает точно по базе знаний — без ошибок, без настроения, без дня рождения в середине рабочего дня.</p>
+                <div class="case-metric">85% корректных ответов · −40% нагрузки на команду</div>
             </div>
             <div class="case-card">
                 <div class="case-company">Платформа для фрилансеров</div>
-                <h3>×2 рост обращений, штат не вырос</h3>
-                <p>Внедрили AI-агента — объём запросов удвоился, команда осталась прежней, CSI не упал.</p>
-                <div class="case-metric">CSI 93% · нулевой рост затрат на поддержку</div>
+                <h3>Обращений стало в 2 раза больше. Команда — та же.</h3>
+                <p>Бизнес вырос. Платить за новых людей не пришлось. AI взял весь прирост нагрузки — и CSI остался на 93%.</p>
+                <div class="case-metric">×2 объём · CSI 93% · затраты на поддержку +0₽</div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- About -->
+<!-- ═══════════ ABOUT ═══════════ -->
 <div class="full-section" style="background:var(--bg);">
     <div class="about-inner">
         <div class="about-photo" id="about-photo">
             👤
         </div>
         <div class="about-content">
-            <div class="section-label">О нас</div>
-            <h2>Строим <span>AI-команды</span><br>под ключ</h2>
-            <p>Мы настраиваем AI-агентов которые реально работают — не демо, не пилот, а продакшн-решения интегрированные в ваши процессы с первого дня.</p>
-            <p>Настраиваем, запускаем, сопровождаем. Вы получаете работающую команду, мы следим чтобы она работала стабильно.</p>
-            <p>Если хотите управлять сами — обучим и передадим все инструменты. Вы всегда под контролем.</p>
+            <div class="section-label">Кто мы</div>
+            <h2>Строим<br><span>AI-команды</span><br>под ключ.</h2>
+            <p>Мы не агентство «полного цикла». Мы делаем одно и делаем это лучше всех: настраиваем AI-агентов которые реально работают в боевых условиях.</p>
+            <p>Без долгих переговоров, без ТЗ на 40 страниц, без «мы уточним у разработчиков». Встреча → настройка → запуск. 3 дня.</p>
+            <p>Хотите управлять самостоятельно — обучим и передадим всё. Хотите чтобы мы вели — остаёмся на сопровождении. Вы выбираете.</p>
             <a href="https://t.me/niki4_JamBo" target="_blank" class="about-tg">
-                ✈️ Написать напрямую в Telegram →
+                ✈️ Написать напрямую →
             </a>
         </div>
     </div>
 </div>
 
-<!-- FAQ — 5 key objections (improvement #5) -->
+<!-- ═══════════ FAQ ═══════════ -->
 <section>
-    <div class="section-label">FAQ</div>
-    <h2>Частые<br><span>вопросы</span></h2>
-    <p class="section-desc">Отвечаем честно на то что волнует больше всего</p>
+    <div class="section-label">Ваши возражения</div>
+    <h2>Вы наверняка<br><span>уже думаете об этом.</span></h2>
+    <p class="section-desc">Отвечаем честно. Без маркетинговых заготовок.</p>
+
     <div class="faq-list">
         <div class="faq-item">
             <button class="faq-q">
-                Это вообще работает для реального бизнеса, или это всё просто демо?
+                «Это звучит как демо. В реальном бизнесе это работает?»
                 <span class="faq-chevron">+</span>
             </button>
             <div class="faq-a">
-                Работает. Мы не делаем демонстрации и пилоты — только продакшн-решения. Агент интегрируется в ваши реальные каналы: Telegram, WhatsApp, AmoCRM. Вы видите результат уже в первые дни работы — живые ответы клиентам, реальные заявки.
+                Только продакшн. Никаких демо и пилотов — мы запускаем агента в ваши реальные каналы: Telegram, WhatsApp, AmoCRM. С первого дня он работает с живыми клиентами по вашим скриптам. Если не работает — дорабатываем бесплатно.
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-q">
-                А что если агент ответит что-то не то клиенту?
+                «А если агент ответит клиенту что-то не то?»
                 <span class="faq-chevron">+</span>
             </button>
             <div class="faq-a">
-                Агент работает строго по вашей базе знаний и скриптам. Всё что он говорит — вы сами написали и проверили перед запуском. Сложные или нестандартные ситуации он передаёт живому менеджеру. Риск некорректного ответа ниже, чем у нового сотрудника без опыта.
+                Агент отвечает только по вашей базе знаний — вы сами написали и проверили каждый сценарий до запуска. Нестандартный вопрос → агент передаёт живому менеджеру. Риск некорректного ответа ниже, чем у нового сотрудника в первый месяц.
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-q">
-                Почему так быстро — 3 дня? Это не слишком мало для нормальной настройки?
+                «3 дня — это невозможно. Нормальные проекты длятся месяцами.»
                 <span class="faq-chevron">+</span>
             </button>
             <div class="faq-a">
-                3 дня — это запуск базовой версии агента в бою. Мы не ждём идеала: запускаем, смотрим на реальные диалоги, дорабатываем в процессе. Это лучше, чем месяц «разработки» и потом ещё месяц «доработки». Agile, а не waterfall.
+                Месяцами — это когда нет фокуса. Мы настраиваем одного агента под одну задачу. Никакой «разработки с нуля» — используем проверенные инструменты. 3 дня — это боевой запуск базовой версии. Дальше дорабатываем уже на реальных диалогах. Это лучше чем идеальный агент через 3 месяца.
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-q">
-                Мне нужен технический специалист чтобы всем этим управлять?
+                «Нужен ли технический специалист чтобы этим управлять?»
                 <span class="faq-chevron">+</span>
             </button>
             <div class="faq-a">
-                Нет. Управление агентом идёт через Telegram — обычное сообщение. Обновить базу знаний, добавить скрипт, посмотреть статистику — всё это без кода и без программистов. Если захотите — обучим вашу команду полностью.
+                Нет. Управление — через Telegram. Обычное сообщение. Добавить в базу знаний, изменить скрипт, посмотреть статистику — без кода и без программистов. Мы обучаем вашу команду за 1 час до передачи.
             </div>
         </div>
         <div class="faq-item">
             <button class="faq-q">
-                Что будет после запуска — вы просто пропадёте?
+                «Вы настроите и пропадёте?»
                 <span class="faq-chevron">+</span>
             </button>
             <div class="faq-a">
-                Нет. В пакетах Стандарт и Команда включена поддержка 30 и 45 дней соответственно. Мы на связи, следим за работой агента и дорабатываем под новые задачи. После окончания поддержки — переходим на сервисный договор или передаём всё управление вам.
+                В пакетах Стандарт и Команда — поддержка 30 и 45 дней. Мы на связи, смотрим на диалоги агента, дорабатываем под новые ситуации. После окончания поддержки — или сервисный договор, или передаём всё управление вам.
             </div>
         </div>
     </div>
 </section>
 
-<!-- Form — with social proof (improvement #9) -->
+<!-- ═══════════ FORM ═══════════ -->
 <div class="form-full" id="form">
     <div class="form-inner">
-        <div class="section-label">Начать</div>
-        <h2>Запустим вашего<br><span>первого агента</span></h2>
-        <p class="section-desc">Оставьте заявку — ответим в течение 2 часов и предложим решение под вашу задачу</p>
+        <div class="section-label">Первый шаг</div>
+        <h2>Получите AI-сотрудника.<br><span>Риск — на нас.</span></h2>
+        <p class="section-desc">
+            Оставьте заявку. Мы позвоним в течение 2 часов, разберём вашу задачу и скажем честно — подходит ли вам AI-агент. Без питча. Без продажи.
+        </p>
 
-        <!-- Social proof near form (improvement #9) -->
+        <!-- Social proof near form -->
         <div class="social-proof">
             <div class="proof-stars">★★★★★</div>
-            <div class="proof-text">«Запустили агента поддержки за 3 дня. Первую неделю он закрывал 70% запросов самостоятельно. Менеджеры наконец-то перестали тонуть в однотипных вопросах.»</div>
-            <div class="proof-author">Руководитель онлайн-школы · <span>Пакет Стандарт</span></div>
+            <div class="proof-text">«Запустили агента поддержки за 3 дня. Первую неделю закрывал 70% запросов сам. Менеджеры наконец-то занялись продажами вместо ответов на "когда доставка?".»</div>
+            <div class="proof-author">Владелец онлайн-школы · <span>Пакет Стандарт</span></div>
         </div>
 
         <div id="form-container">
@@ -1234,37 +1302,41 @@
                     <option value="team">🏆 Пакет Команда — 350 000 ₽</option>
                     <option value="custom">Кастомное решение</option>
                 </select>
-                <textarea id="f-task" placeholder="Опишите задачу — что хотите автоматизировать?"></textarea>
-                <button type="submit" class="form-submit">Отправить заявку в Telegram →</button>
-                <p class="form-note">🔒 Данные передаются напрямую в Telegram. Никакого спама. Ответим за 2 часа.</p>
+                <textarea id="f-task" placeholder="Что хотите автоматизировать? Чем больше деталей — тем точнее совет."></textarea>
+                <button type="submit" class="form-submit">Получить бесплатную консультацию →</button>
+                <p class="form-note">
+                    🔒 Данные уходят напрямую в Telegram. Никакого спама.<br>
+                    Ответим в течение 2 часов. Если не ответили — напишите сами: <a href="https://t.me/niki4_JamBo" target="_blank" style="color:var(--accent-light);text-decoration:none;font-weight:600;">@niki4_JamBo</a>
+                </p>
             </form>
         </div>
 
         <div class="form-success" id="form-success">
             <div style="font-size:64px;margin-bottom:24px;">✅</div>
             <h3>Заявка отправлена!</h3>
-            <p style="color:var(--text-muted);margin-top:12px;font-size:16px;">
-                Мы напишем вам в Telegram в течение 2 часов.<br>
-                Если срочно — <a href="https://t.me/niki4_JamBo" target="_blank" style="color:var(--accent-light);text-decoration:none;font-weight:600;">напишите сами →</a>
+            <p style="color:var(--text-muted);margin-top:12px;font-size:16px;line-height:1.7;">
+                Напишем в Telegram в течение 2 часов.<br>
+                Если срочно — <a href="https://t.me/niki4_JamBo" target="_blank" style="color:var(--accent-light);text-decoration:none;font-weight:700;">напишите сами →</a>
             </p>
         </div>
     </div>
 </div>
 
-<!-- Footer -->
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer>
     <div class="footer-logo">Njoy AI Studio</div>
-    <p class="footer-text">AI-команды вместо штата сотрудников</p>
+    <p class="footer-text">AI-сотрудники которые работают. Гарантировано.</p>
     <div class="footer-links">
-        <a href="#reels">Reels Agent</a>
+        <a href="#reels">Reels Creator</a>
         <a href="#pricing">Тарифы</a>
+        <a href="#form">Консультация</a>
         <a href="https://t.me/niki4_JamBo" target="_blank">Telegram</a>
     </div>
     <p class="footer-copy">© 2026 Njoy AI Studio. Все права защищены.</p>
 </footer>
 
 <script>
-    // Form submit
+    // Form submit → open Telegram
     document.getElementById('lead-form').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -1287,9 +1359,7 @@
         btn.addEventListener('click', function() {
             const item = btn.parentElement;
             const isOpen = item.classList.contains('open');
-            // Close all
             document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
-            // Open clicked if it was closed
             if (!isOpen) item.classList.add('open');
         });
     });
