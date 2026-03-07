@@ -1200,7 +1200,169 @@
 <div class="full-section" style="background:var(--bg);">
     <div class="about-inner">
         <div class="about-photo" id="about-photo">
-            👤
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080c0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d1510;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowCenter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4a8c5c;stop-opacity:0.35" />
+      <stop offset="60%" style="stop-color:#2d5c3a;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#0d1510;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6abf7e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a7a50;stop-opacity:0" />
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="circleClip">
+      <circle cx="400" cy="400" r="320"/>
+    </clipPath>
+  </defs>
+  <rect width="800" height="800" fill="url(#bgGrad)"/>
+  <circle cx="400" cy="400" r="320" fill="url(#glowCenter)"/>
+  <circle cx="400" cy="400" r="290" fill="none" stroke="#1e3d28" stroke-width="1" opacity="0.6"/>
+  <circle cx="400" cy="400" r="260" fill="none" stroke="#1e3d28" stroke-width="0.5" opacity="0.4"/>
+  <g stroke="#4a8c5c" stroke-width="1" opacity="0.5">
+    <line x1="400" y1="108" x2="400" y2="120"/>
+    <line x1="400" y1="680" x2="400" y2="692"/>
+    <line x1="108" y1="400" x2="120" y2="400"/>
+    <line x1="680" y1="400" x2="692" y2="400"/>
+    <line x1="195" y1="195" x2="203" y2="207"/>
+    <line x1="605" y1="195" x2="597" y2="207"/>
+    <line x1="195" y1="605" x2="207" y2="597"/>
+    <line x1="605" y1="605" x2="593" y2="593"/>
+  </g>
+  <g stroke="#1a2e20" stroke-width="0.5" opacity="0.5" clip-path="url(#circleClip)">
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="0" y1="600" x2="800" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="800"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="400" y1="0" x2="400" y2="800"/>
+    <line x1="500" y1="0" x2="500" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+  </g>
+  <g filter="url(#glow)" transform="translate(400,390)">
+    <line x1="-70" y1="-130" x2="-70" y2="130" stroke="#c8e6d0" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="70" y1="-130" x2="70" y2="130" stroke="#c8e6d0" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-70" y1="-130" x2="10" y2="-20" stroke="#c8e6d0" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="-10" y1="20" x2="70" y2="130" stroke="#c8e6d0" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="-70" cy="-150" r="14" fill="none" stroke="#6abf7e" stroke-width="2.5" filter="url(#softGlow)"/>
+    <circle cx="70" cy="152" r="14" fill="none" stroke="#6abf7e" stroke-width="2.5" filter="url(#softGlow)"/>
+    <g transform="translate(0, 0)">
+      <rect x="-20" y="-18" width="32" height="28" fill="#0d1510" stroke="#6abf7e" stroke-width="1.5"/>
+      <polygon points="-20,-18 12,-18 20,-28 -12,-28" fill="#0d1510" stroke="#6abf7e" stroke-width="1.5"/>
+      <polygon points="12,-18 12,10 20,0 20,-28" fill="#0d1510" stroke="#6abf7e" stroke-width="1.5"/>
+      <rect x="-20" y="-18" width="32" height="28" fill="#6abf7e" opacity="0.06"/>
+    </g>
+  </g>
+  <g stroke="#2d6e42" stroke-width="0.8" opacity="0.6">
+    <line x1="170" y1="280" x2="255" y2="310"/>
+    <line x1="170" y1="280" x2="255" y2="400"/>
+    <line x1="170" y1="400" x2="255" y2="310"/>
+    <line x1="170" y1="400" x2="255" y2="400"/>
+    <line x1="170" y1="400" x2="255" y2="490"/>
+    <line x1="170" y1="520" x2="255" y2="400"/>
+    <line x1="170" y1="520" x2="255" y2="490"/>
+    <line x1="255" y1="310" x2="545" y2="310"/>
+    <line x1="255" y1="310" x2="545" y2="400"/>
+    <line x1="255" y1="400" x2="545" y2="310"/>
+    <line x1="255" y1="400" x2="545" y2="400"/>
+    <line x1="255" y1="400" x2="545" y2="490"/>
+    <line x1="255" y1="490" x2="545" y2="400"/>
+    <line x1="255" y1="490" x2="545" y2="490"/>
+    <line x1="545" y1="310" x2="630" y2="280"/>
+    <line x1="545" y1="310" x2="630" y2="400"/>
+    <line x1="545" y1="400" x2="630" y2="280"/>
+    <line x1="545" y1="400" x2="630" y2="400"/>
+    <line x1="545" y1="400" x2="630" y2="520"/>
+    <line x1="545" y1="490" x2="630" y2="400"/>
+    <line x1="545" y1="490" x2="630" y2="520"/>
+  </g>
+  <g stroke="#4abf6e" stroke-width="1.2" opacity="0.5" filter="url(#softGlow)">
+    <line x1="170" y1="400" x2="255" y2="400"/>
+    <line x1="255" y1="400" x2="545" y2="400"/>
+    <line x1="545" y1="400" x2="630" y2="400"/>
+    <line x1="255" y1="310" x2="545" y2="490"/>
+    <line x1="170" y1="280" x2="255" y2="310"/>
+  </g>
+  <g filter="url(#softGlow)">
+    <circle cx="170" cy="280" r="6" fill="#1a3d26" stroke="#4a8c5c" stroke-width="1.5"/>
+    <circle cx="170" cy="400" r="7" fill="#2a6e40" stroke="#6abf7e" stroke-width="2"/>
+    <circle cx="170" cy="520" r="6" fill="#1a3d26" stroke="#4a8c5c" stroke-width="1.5"/>
+  </g>
+  <g filter="url(#softGlow)">
+    <circle cx="255" cy="310" r="6" fill="#1a3d26" stroke="#4a8c5c" stroke-width="1.5"/>
+    <circle cx="255" cy="400" r="7" fill="#2a6e40" stroke="#6abf7e" stroke-width="2"/>
+    <circle cx="255" cy="490" r="6" fill="#1a3d26" stroke="#4a8c5c" stroke-width="1.5"/>
+  </g>
+  <g filter="url(#softGlow)">
+    <circle cx="545" cy="310" r="6" fill="#1a3d26" stroke="#4a8c5c" stroke-width="1.5"/>
+    <circle cx="545" cy="400" r="7" fill="#2a6e40" stroke="#6abf7e" stroke-width="2"/>
+    <circle cx="545" cy="490" r="6" fill="#1a3d26" stroke="#4a8c5c" stroke-width="1.5"/>
+  </g>
+  <g filter="url(#softGlow)">
+    <circle cx="630" cy="280" r="6" fill="#1a3d26" stroke="#4a8c5c" stroke-width="1.5"/>
+    <circle cx="630" cy="400" r="7" fill="#2a6e40" stroke="#6abf7e" stroke-width="2"/>
+    <circle cx="630" cy="520" r="6" fill="#1a3d26" stroke="#4a8c5c" stroke-width="1.5"/>
+  </g>
+  <g filter="url(#strongGlow)" opacity="0.85">
+    <circle cx="340" cy="400" r="4" fill="#8fffb0"/>
+    <circle cx="480" cy="310" r="3" fill="#6abf7e"/>
+    <circle cx="210" cy="345" r="3" fill="#6abf7e"/>
+    <circle cx="587" cy="445" r="3" fill="#6abf7e"/>
+  </g>
+  <g stroke="#2a5c38" stroke-width="0.8" opacity="0.4" clip-path="url(#circleClip)">
+    <line x1="100" y1="650" x2="700" y2="150"/>
+    <line x1="120" y1="700" x2="720" y2="120"/>
+    <line x1="80" y1="600" x2="680" y2="200"/>
+    <line x1="60" y1="550" x2="660" y2="250"/>
+  </g>
+  <text x="400" y="580" font-family="'Courier New', monospace" font-size="28" font-weight="700"
+        fill="#c8e6d0" text-anchor="middle" letter-spacing="8" filter="url(#softGlow)">NJOY</text>
+  <text x="400" y="612" font-family="'Courier New', monospace" font-size="13" font-weight="400"
+        fill="#4a8c5c" text-anchor="middle" letter-spacing="12">AI  STUDIO</text>
+  <text x="400" y="648" font-family="'Courier New', monospace" font-size="9"
+        fill="#2d6e42" text-anchor="middle" letter-spacing="4" opacity="0.8">AUTOMATION · INTELLIGENCE · GROWTH</text>
+  <line x1="320" y1="622" x2="480" y2="622" stroke="#2d6e42" stroke-width="0.8" opacity="0.6"/>
+  <g stroke="#2a5c38" stroke-width="1" opacity="0.5">
+    <line x1="60" y1="80" x2="100" y2="80"/>
+    <line x1="60" y1="80" x2="60" y2="120"/>
+  </g>
+  <g stroke="#2a5c38" stroke-width="1" opacity="0.5">
+    <line x1="740" y1="80" x2="700" y2="80"/>
+    <line x1="740" y1="80" x2="740" y2="120"/>
+  </g>
+  <g stroke="#2a5c38" stroke-width="1" opacity="0.5">
+    <line x1="60" y1="720" x2="100" y2="720"/>
+    <line x1="60" y1="720" x2="60" y2="680"/>
+  </g>
+  <g stroke="#2a5c38" stroke-width="1" opacity="0.5">
+    <line x1="740" y1="720" x2="700" y2="720"/>
+    <line x1="740" y1="720" x2="740" y2="680"/>
+  </g>
+  <text x="68" y="76" font-family="monospace" font-size="8" fill="#2d6e42" opacity="0.6">SYS.ACTIVE</text>
+  <text x="665" y="76" font-family="monospace" font-size="8" fill="#2d6e42" opacity="0.6" text-anchor="end">v2.4.1</text>
+  <text x="68" y="740" font-family="monospace" font-size="8" fill="#2d6e42" opacity="0.6">NJY-CORE</text>
+  <text x="665" y="740" font-family="monospace" font-size="8" fill="#2d6e42" opacity="0.6" text-anchor="end">AI.AUTO</text>
+  <circle cx="400" cy="130" r="3" fill="#6abf7e" filter="url(#softGlow)" opacity="0.8"/>
+  <text x="415" y="134" font-family="monospace" font-size="8" fill="#4a8c5c" opacity="0.7">ONLINE</text>
+</svg>
         </div>
         <div class="about-content">
             <div class="section-label">Кто мы</div>
